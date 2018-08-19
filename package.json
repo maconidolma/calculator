@@ -1,0 +1,29 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://maconidolma@bitbucket.org/maconidolma/calculator.git"
+  },
+  "author": "tanya",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/maconidolma/calculator#readme",
+  "dependencies": {
+    "@zeit/next-css": "^0.2.0",
+    "bootstrap": "^4.1.3",
+    "next": "^6.1.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "css-loader": "^1.0.0"
+  }
+}
