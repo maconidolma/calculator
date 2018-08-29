@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import Screen from './Screen'
 import Keyboard from './Keyboard'
 
+import fetch from 'isomorphic-fetch'
+
+
 
 class Calculator extends Component {
     constructor(props) {
@@ -17,7 +20,6 @@ class Calculator extends Component {
             isFirstOperand: true,
             shouldClrScreen: true,
             prevEqually: false
-
         }
     }
 
@@ -36,6 +38,17 @@ class Calculator extends Component {
 
     sendToServer(str) {
         console.log(str);
+
+        let url = 'http://localhost:3000/expressions';
+        let data = {operation: str};
+
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(response => console.log('Success: ', response))
     }
 
     calculateAndSendToServer(fOp, sOp, op ) {
@@ -56,14 +69,12 @@ class Calculator extends Component {
                 break;
         }
 
-        this.sendToServer(fOp.toString() + op + sOp.toString() + '=' + calculatedValue.toString());
+        this.sendToServer(fOp.toString() + ' ' + op + ' ' + sOp.toString() +  ' = ' + calculatedValue.toString());
         return calculatedValue;
-
-
     }  // calculateAndSendToServer()
 
     buttonHandler(buttonValue) {
-        let newState = {}
+        let newState = {};
 
         if (this.state.shouldClrScreen) {
             newState = {
@@ -153,7 +164,7 @@ class Calculator extends Component {
 
         this.setState ({
             ...newState
-        })
+        });
 
         console.log('currentState', newState);
     }  // buttonHandler()

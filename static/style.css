@@ -3,6 +3,12 @@
 
 }
 
+.mainWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .wrapper {
     position: relative;
     display: flex;
@@ -40,6 +46,62 @@
 .box0 {
     grid-column: 1 / 4;
     grid-row: 5 / 5;
+}
+.link {
+    display: inline-block;
+    text-decoration: none;
+    margin: 40px;
+    text-align: center;
+    padding: 14px 25px;
+    background: #444;
+    color: #fff;
+    font-size: 150%;
+}
+
+
+.history {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.history1 {
+    display: flex;
+    flex-direction: column-reverse;
+    border: 1px solid black;
+    align-items: center;
+}
+
+.historyList {
+    border: 1px solid black;
+}
+.deleteAll {
+    border: 1px solid black;
+    text-align: center;
+    padding: 14px 25px;
+    background: #444;
+    color: #fff;
+    font-size: 100%;
+}
+.ul {
+    list-style: none;
+    width: 300px;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 50px;
+}
+.expression {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+.item {
+    font-size: 150%;
+}
+.x {
+    right: 0px;
+    font-size: 200%;
+    color: red;
+    cursor: pointer;
 }
 
 
