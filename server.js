@@ -8,8 +8,6 @@ const DBService = require('./services/DBService');
 
 
 let dbService = new DBService();
-//let history = [];
-//let totalElementsCounter = 0;
 
 let server;
 
@@ -29,13 +27,6 @@ app.prepare()
 
         // POST handler
         server.post('/expressions', async function (req, res) {
-            /*totalElementsCounter += 1;
-            let obj = {
-                id: totalElementsCounter,
-                expression: req.body.operation
-            };*/
-
-            //history.push(obj);
             await dbService.addEntry(req.body.operation);
 
             res.json({ok:true})

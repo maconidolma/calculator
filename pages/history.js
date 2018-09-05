@@ -6,15 +6,18 @@ import 'isomorphic-fetch'
 export default class extends React.Component {
 
     static async getInitialProps () {
+        try {
 
-        const res = await fetch('http://localhost:3000/expressions', {
-            method: 'GET',
-        });
+            const res = await fetch('http://localhost:3000/expressions', {
+                method: 'GET',
+            });
 
-        const json = await res.json();
-
-        return { arr: json }
-
+            const json = await res.json();
+            return {arr: json}
+        }
+        catch (error) {
+            console.error(error);
+        }
     }
 
     render() {

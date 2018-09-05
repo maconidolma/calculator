@@ -45,10 +45,13 @@ class Calculator extends Component {
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
-            headers:{
+            headers: {
                 'Content-Type': 'application/json'
             }
         }).then(response => console.log('Success: ', response))
+            .catch(function(error) {
+                 //console.log(error);
+            })
     }
 
     calculateAndSendToServer(fOp, sOp, op ) {
