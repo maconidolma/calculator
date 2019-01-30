@@ -50,7 +50,7 @@ class Calculator extends Component {
             }
         }).then(response => console.log('Success: ', response))
             .catch(function(error) {
-                 //console.log(error);
+                 console.log('calculator error: ', error);
             })
     }
 

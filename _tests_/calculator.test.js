@@ -1,12 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-
-
 import  Calculator from '../components/Calculator';
-
-
-
 
 
 function mouneAndFind() {
@@ -35,8 +30,7 @@ function mouneAndFind() {
     return [buttons, screen, wrapper];
 }
 
-
-test('CalculatorComponent renders the numbers at screen', () => {
+test('CalculatorComponent calculations', () => {
     let [buttons, screen] = mouneAndFind();
 
     buttons['5'].simulate('click');
@@ -58,8 +52,7 @@ test('CalculatorComponent renders the numbers at screen', () => {
     expect(screen.text()).toBe('-250');
 });
 
-
-test('CalculatorComponent', () => {
+test('CalculatorComponentSnapshot', () => {
     let [buttons, screen, wrapper] = mouneAndFind();
 
     expect(shallowToJson(wrapper)).toMatchSnapshot();
@@ -74,4 +67,16 @@ test('CalculatorState', () => {
     expect(wrapper.state().firstOperand).toEqual('5');
 });
 
+test('Express server test', async () => {
+    let expressServerRunner = require('../expressServer');
+    console.log('1');
+    let expressServer = expressServerRunner();
+    console.log('2');
 
+    //var xmlHttp = new XMLHttpRequest();
+    //xmlHttp.open( "GET", 'http://localhost:3000/expressions', false ); // false for synchronous request
+    //xmlHttp.send( null );
+    //xmlHttp.responseText;
+
+    expressServer.close();
+});

@@ -2,11 +2,6 @@ const mysql = require('mysql2/promise');
 
 class DBService {
 
-    /*constructor () {
-        this.history = [];
-        this.totalElementsCounter = 0;
-    }*/
-
     async init() {
         try {
             this.connection = await mysql.createConnection({

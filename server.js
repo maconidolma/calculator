@@ -11,7 +11,7 @@ let dbService = new DBService();
 
 let server;
 
-app.prepare()
+module.exports = app.prepare()
     .then(async () => {
         server = express();
         await dbService.init();
@@ -20,15 +20,12 @@ app.prepare()
 
         // GET handlers
         server.get('/expressions', async function (req, res) {
-
             res.json( await dbService.getAll());
-
         });
 
         // POST handler
         server.post('/expressions', async function (req, res) {
             await dbService.addEntry(req.body.operation);
-
             res.json({ok:true})
         });
 
@@ -48,5 +45,5 @@ app.prepare()
             return handle(req, res)
         });
 
-        server.listen(3000)
+        return server.listen(3000);
     });
